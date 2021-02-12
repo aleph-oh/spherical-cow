@@ -1,31 +1,35 @@
 [package]
 name = "spherical-cow"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["Tim DuBois <tim@neophilus.net>"]
 description = "Spherical Cow: High volume fraction sphere packing in arbitrary geometries"
 repository = "https://github.com/Libbum/spherical-cow"
 readme = "./README.md"
 keywords = ["sphere", "packing", "spherepacking", "geometry", "obj"]
 license = "MIT/Apache-2.0"
+edition = "2018"
+exclude = ["benches/*", "examples/*", "tests/*"]
 
 [features]
 default = []
 serde-1 = ["serde", "nalgebra/serde-serialize"]
 
 [dependencies]
-rand = "0.6.5"
-nalgebra = "0.18.0"
-float-cmp = "0.4"
-itertools = "0.8"
+rand = "0.8"
+rand_distr = "0.4"
+nalgebra = "0.24"
+float-cmp = "0.8"
+itertools = "0.10"
 serde = { version = "1.0", optional = true }
 
 [dev-dependencies]
-kiss3d = "0.20.1"
-obj = "0.9"
+kiss3d = "0.29"
+obj = "0.10"
 serde_json = "1.0"
-criterion = "0.2.11"
+criterion = "0.3"
 
 [[bench]]
+path = "benches/sphere_pack.rs"
 name = "sphere_pack"
 harness = false
 
@@ -37,30 +41,39 @@ codecov = { repository = "Libbum/spherical-cow", branch = "master", service = "g
 features = ["serde-1"]
 
 [[example]]
+path = "examples/serialize.rs"
 name = "serialize"
 required-features = ["serde-1"]
 
 [[example]]
+path = "examples/count_sphere_normal.rs"
 name = "count_sphere_normal"
 
 [[example]]
+path = "examples/count_sphere_range.rs"
 name = "count_sphere_range"
 
 [[example]]
+path = "examples/show_in_cow.rs"
 name = "show_in_cow"
 
 [[example]]
+path = "examples/show_in_cuboid.rs"
 name = "show_in_cuboid"
 
 [[example]]
+path = "examples/show_in_emerald.rs"
 name = "show_in_emerald"
 
 [[example]]
+path = "examples/show_in_sphere.rs"
 name = "show_in_sphere"
 
 [[example]]
+path = "examples/statistics_emerald.rs"
 name = "statistics_emerald"
 
 [[example]]
+path = "examples/statistics_sphere.rs"
 name = "statistics_sphere"
 

@@ -38,10 +38,6 @@ Complete documentation can be found at [docs.rs](https://docs.rs/spherical-cow/)
 
 A simple example to get you packing spheres of radii (0.1..0.2) into a container sphere of radius 2.
 ```rust
-extern crate nalgebra;
-extern crate rand;
-extern crate spherical_cow;
-
 use spherical_cow::shapes::Sphere;
 use rand::distributions::Uniform;
 use nalgebra::Point3;
@@ -74,32 +70,6 @@ The paper which this algorithm comes from gives two examples of real world use c
 2. Sphere packing a cutting tool to identify the failure / breaking points when the tool is placed under load.
 
 The reason this library was initially written was to optimise the layout of inflatable [space habitats](https://github.com/Libbum/space-habitats) which may one day be constructed on the Moon and Mars.
-
-# Changelog
-
-- 0.1.2
-
-  - Patch release to fix hard failures due to [rust-lang/rust#49799](https://github.com/rust-lang/rust/pull/49799) (thanks [hdhoang](https://github.com/hdhoang))
-  - Small performance improvements via algebraic simplifications and minimising vector allocations.
-  - Add [itertools](https://github.com/bluss/rust-itertools) to simplify pair collection using `.collect_tuple()`.
-  - Added [sphere_pack](benches/sphere_pack.rs) benchmarking target using [criterion](https://github.com/japaric/criterion.rs).
-  - Upgrade to [rand v0.5](https://github.com/rust-lang-nursery/rand) which now uses HC-128: increasing our efficiency.
-
-- 0.1.1
-
-  - Complete error handling.
-  - Code coverage and testing suite filled out.
-  - Add [float-cmp](https://github.com/mikedilger/float-cmp) for more robust floating point comparisons.
-
-- 0.1
-
-  - Initial release.
-  - Sphere and cuboid container shapes.
-  - Contained trait for user defined shapes.
-  - Fully functional in arbitrary geometry using user defined trimeshes.
-  - Utility to identify volume of trimeshes using tetrahedron summation.
-  - Utility to identify if spheres are contained within trimeshes via ray casting.
-  - Volume fraction, void ratio, coordination number and fabric tensors provide quantitative analysis of packing.
 
 # License
 
